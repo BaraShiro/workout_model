@@ -1,6 +1,17 @@
 import 'package:workout_model/workout_model.dart';
 
 void main() {
-  Exercise exercise = Exercise("asdfasdf", "An exercise", "Some exercise that can be done", 4, 1, 5, 20.0);
-  print("Id: ${exercise.id}, Name: ${exercise.name}, Description: ${exercise.description}, Repetitions: ${exercise.numberOfRepetitions}, Rest Time: ${exercise.restTimeInMinutes}, Sets: ${exercise.numberOfSets}, Weight: ${exercise.weightInKilograms}");
+  Exercise exercise = Exercise(
+      id:"asdfasdf",
+      name:"An exercise",
+      description: "Some exercise that can be done",
+      numberOfRepetitions: 4,
+      restTimeInMinutes: 1,
+      numberOfSets: 5,
+      weightInKilograms: 20.0);
+
+  Exercise exercise2 = exercise.copyWith(name: "Another exercise", numberOfRepetitions: 8);
+
+  print(exercise.toJson());
+  print(exercise2.toJson());
 }

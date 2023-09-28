@@ -1,15 +1,23 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'exercise_model.freezed.dart';
+part 'exercise_model.g.dart';
+
 /// An exercise consisting of a number of repetitions with a certain weight,
 /// grouped into sets with rest time in between.
-class Exercise {
-  String id;
-  String name;
-  String description;
-  int numberOfRepetitions;
-  int restTimeInMinutes;
-  int numberOfSets;
-  double weightInKilograms;
+@freezed
+class Exercise with _$Exercise {
+  const factory Exercise({
+    required String id,
+    required String name,
+    required String description,
+    required int numberOfRepetitions,
+    required int restTimeInMinutes,
+    required int numberOfSets,
+    required double weightInKilograms,
+  }) = _Exercise;
 
-  Exercise(this.id, this.name, this.description, this.numberOfRepetitions,
-      this.restTimeInMinutes, this.numberOfSets, this.weightInKilograms);
+  factory Exercise.fromJson(Map<String, Object?> json)
+  => _$ExerciseFromJson(json);
 
 }
