@@ -175,7 +175,7 @@ class __$$ExerciseImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ExerciseImpl implements _Exercise {
+class _$ExerciseImpl extends _Exercise {
   _$ExerciseImpl(
       {required this.uuid,
       required this.name,
@@ -183,7 +183,8 @@ class _$ExerciseImpl implements _Exercise {
       required this.numberOfRepetitions,
       required this.restTimeInMinutes,
       required this.numberOfSets,
-      required this.weightInKilograms});
+      required this.weightInKilograms})
+      : super._();
 
   factory _$ExerciseImpl.fromJson(Map<String, dynamic> json) =>
       _$$ExerciseImplFromJson(json);
@@ -205,7 +206,7 @@ class _$ExerciseImpl implements _Exercise {
 
   @override
   String toString() {
-    return 'Exercise._(uuid: $uuid, name: $name, description: $description, numberOfRepetitions: $numberOfRepetitions, restTimeInMinutes: $restTimeInMinutes, numberOfSets: $numberOfSets, weightInKilograms: $weightInKilograms)';
+    return 'Exercise._def(uuid: $uuid, name: $name, description: $description, numberOfRepetitions: $numberOfRepetitions, restTimeInMinutes: $restTimeInMinutes, numberOfSets: $numberOfSets, weightInKilograms: $weightInKilograms)';
   }
 
   @override
@@ -246,7 +247,7 @@ class _$ExerciseImpl implements _Exercise {
   }
 }
 
-abstract class _Exercise implements Exercise {
+abstract class _Exercise extends Exercise {
   factory _Exercise(
       {required final String uuid,
       required final String name,
@@ -255,6 +256,7 @@ abstract class _Exercise implements Exercise {
       required final int restTimeInMinutes,
       required final int numberOfSets,
       required final double weightInKilograms}) = _$ExerciseImpl;
+  _Exercise._() : super._();
 
   factory _Exercise.fromJson(Map<String, dynamic> json) =
       _$ExerciseImpl.fromJson;

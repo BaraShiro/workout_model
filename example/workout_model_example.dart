@@ -9,7 +9,9 @@ void main() {
     numberOfSets: 5,
     weightInKilograms: 20.0);
 
-  Exercise exercise2 = exercise.copyWith(name: "Another exercise", numberOfRepetitions: 8);
+  Exercise exercise2 = exercise
+      .updateName("An updated exercise")
+      .updateNumberOfRepetitions(8);
 
   Exercise exercise3 = Exercise(
     name: "Some exercise",
@@ -19,8 +21,10 @@ void main() {
     numberOfSets: 3,
     weightInKilograms: 2.5);
 
+  Exercise exercise4 = Exercise.fromJson(exercise3.toJson());
 
   print(exercise.toJson());
   print(exercise2.toJson());
   print(exercise3.toJson());
+  print(exercise4.toJson());
 }

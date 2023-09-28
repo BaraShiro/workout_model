@@ -8,9 +8,13 @@ part 'exercise_model.g.dart';
 /// grouped into sets with rest time in between.
 @freezed
 class Exercise with _$Exercise implements IIdentifiable {
+  /// Private constructor with no parameters.
+  /// Used by Freezed to enable use of methods in this class.
+  const Exercise._();
+
   /// Private constructor with a parameter for [uuid].
   /// Only used for code generation with Freezed.
-  factory Exercise._({
+  factory Exercise._def({
     required UUID uuid,
     required String name,
     required String description,
@@ -42,4 +46,34 @@ class Exercise with _$Exercise implements IIdentifiable {
 
   factory Exercise.fromJson(Map<String, Object?> json)
   => _$ExerciseFromJson(json);
+
+  Exercise updateName(String newName)
+  {
+    return copyWith(name: newName);
+  }
+
+  Exercise updateDescription(String newDescription)
+  {
+    return copyWith(description: newDescription);
+  }
+
+  Exercise updateNumberOfRepetitions(int newNumberOfRepetitions)
+  {
+    return copyWith(numberOfRepetitions: newNumberOfRepetitions);
+  }
+
+  Exercise updateRestTimeInMinutes(int newRestTimeInMinutes)
+  {
+    return copyWith(restTimeInMinutes: newRestTimeInMinutes);
+  }
+
+  Exercise updateNumberOfSets(int newNumberOfSets)
+  {
+    return copyWith(numberOfSets: newNumberOfSets);
+  }
+
+  Exercise updateWeightInKilograms(double newWeightInKilograms)
+  {
+    return copyWith(weightInKilograms: newWeightInKilograms);
+  }
 }
