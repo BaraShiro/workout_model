@@ -20,14 +20,69 @@ Exercise _$ExerciseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Exercise {
-  String get id => throw _privateConstructorUsedError;
+  String get uuid => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   int get numberOfRepetitions => throw _privateConstructorUsedError;
   int get restTimeInMinutes => throw _privateConstructorUsedError;
   int get numberOfSets => throw _privateConstructorUsedError;
   double get weightInKilograms => throw _privateConstructorUsedError;
-
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String uuid,
+            String name,
+            String description,
+            int numberOfRepetitions,
+            int restTimeInMinutes,
+            int numberOfSets,
+            double weightInKilograms)
+        def,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            String uuid,
+            String name,
+            String description,
+            int numberOfRepetitions,
+            int restTimeInMinutes,
+            int numberOfSets,
+            double weightInKilograms)?
+        def,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            String uuid,
+            String name,
+            String description,
+            int numberOfRepetitions,
+            int restTimeInMinutes,
+            int numberOfSets,
+            double weightInKilograms)?
+        def,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Exercise value) def,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Exercise value)? def,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Exercise value)? def,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ExerciseCopyWith<Exercise> get copyWith =>
@@ -40,7 +95,7 @@ abstract class $ExerciseCopyWith<$Res> {
       _$ExerciseCopyWithImpl<$Res, Exercise>;
   @useResult
   $Res call(
-      {String id,
+      {String uuid,
       String name,
       String description,
       int numberOfRepetitions,
@@ -62,7 +117,7 @@ class _$ExerciseCopyWithImpl<$Res, $Val extends Exercise>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? uuid = null,
     Object? name = null,
     Object? description = null,
     Object? numberOfRepetitions = null,
@@ -71,9 +126,9 @@ class _$ExerciseCopyWithImpl<$Res, $Val extends Exercise>
     Object? weightInKilograms = null,
   }) {
     return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      uuid: null == uuid
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
               as String,
       name: null == name
           ? _value.name
@@ -112,7 +167,7 @@ abstract class _$$ExerciseImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
+      {String uuid,
       String name,
       String description,
       int numberOfRepetitions,
@@ -132,7 +187,7 @@ class __$$ExerciseImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? uuid = null,
     Object? name = null,
     Object? description = null,
     Object? numberOfRepetitions = null,
@@ -141,9 +196,9 @@ class __$$ExerciseImplCopyWithImpl<$Res>
     Object? weightInKilograms = null,
   }) {
     return _then(_$ExerciseImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      uuid: null == uuid
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
               as String,
       name: null == name
           ? _value.name
@@ -176,8 +231,8 @@ class __$$ExerciseImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ExerciseImpl implements _Exercise {
-  const _$ExerciseImpl(
-      {required this.id,
+  _$ExerciseImpl(
+      {required this.uuid,
       required this.name,
       required this.description,
       required this.numberOfRepetitions,
@@ -189,7 +244,7 @@ class _$ExerciseImpl implements _Exercise {
       _$$ExerciseImplFromJson(json);
 
   @override
-  final String id;
+  final String uuid;
   @override
   final String name;
   @override
@@ -205,7 +260,7 @@ class _$ExerciseImpl implements _Exercise {
 
   @override
   String toString() {
-    return 'Exercise(id: $id, name: $name, description: $description, numberOfRepetitions: $numberOfRepetitions, restTimeInMinutes: $restTimeInMinutes, numberOfSets: $numberOfSets, weightInKilograms: $weightInKilograms)';
+    return 'Exercise.def(uuid: $uuid, name: $name, description: $description, numberOfRepetitions: $numberOfRepetitions, restTimeInMinutes: $restTimeInMinutes, numberOfSets: $numberOfSets, weightInKilograms: $weightInKilograms)';
   }
 
   @override
@@ -213,7 +268,7 @@ class _$ExerciseImpl implements _Exercise {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ExerciseImpl &&
-            (identical(other.id, id) || other.id == id) &&
+            (identical(other.uuid, uuid) || other.uuid == uuid) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -229,7 +284,7 @@ class _$ExerciseImpl implements _Exercise {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, description,
+  int get hashCode => Object.hash(runtimeType, uuid, name, description,
       numberOfRepetitions, restTimeInMinutes, numberOfSets, weightInKilograms);
 
   @JsonKey(ignore: true)
@@ -237,6 +292,89 @@ class _$ExerciseImpl implements _Exercise {
   @pragma('vm:prefer-inline')
   _$$ExerciseImplCopyWith<_$ExerciseImpl> get copyWith =>
       __$$ExerciseImplCopyWithImpl<_$ExerciseImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String uuid,
+            String name,
+            String description,
+            int numberOfRepetitions,
+            int restTimeInMinutes,
+            int numberOfSets,
+            double weightInKilograms)
+        def,
+  }) {
+    return def(uuid, name, description, numberOfRepetitions, restTimeInMinutes,
+        numberOfSets, weightInKilograms);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            String uuid,
+            String name,
+            String description,
+            int numberOfRepetitions,
+            int restTimeInMinutes,
+            int numberOfSets,
+            double weightInKilograms)?
+        def,
+  }) {
+    return def?.call(uuid, name, description, numberOfRepetitions,
+        restTimeInMinutes, numberOfSets, weightInKilograms);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            String uuid,
+            String name,
+            String description,
+            int numberOfRepetitions,
+            int restTimeInMinutes,
+            int numberOfSets,
+            double weightInKilograms)?
+        def,
+    required TResult orElse(),
+  }) {
+    if (def != null) {
+      return def(uuid, name, description, numberOfRepetitions,
+          restTimeInMinutes, numberOfSets, weightInKilograms);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Exercise value) def,
+  }) {
+    return def(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Exercise value)? def,
+  }) {
+    return def?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Exercise value)? def,
+    required TResult orElse(),
+  }) {
+    if (def != null) {
+      return def(this);
+    }
+    return orElse();
+  }
 
   @override
   Map<String, dynamic> toJson() {
@@ -247,8 +385,8 @@ class _$ExerciseImpl implements _Exercise {
 }
 
 abstract class _Exercise implements Exercise {
-  const factory _Exercise(
-      {required final String id,
+  factory _Exercise(
+      {required final String uuid,
       required final String name,
       required final String description,
       required final int numberOfRepetitions,
@@ -260,7 +398,7 @@ abstract class _Exercise implements Exercise {
       _$ExerciseImpl.fromJson;
 
   @override
-  String get id;
+  String get uuid;
   @override
   String get name;
   @override
