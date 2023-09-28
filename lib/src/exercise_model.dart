@@ -44,34 +44,41 @@ class Exercise with _$Exercise implements IIdentifiable {
     );
   }
 
+  /// Constructs a new [Exercise] object from a Json object.
   factory Exercise.fromJson(Map<String, Object?> json)
   => _$ExerciseFromJson(json);
 
+  /// Updates the [name] of this [Exercise]
   Exercise updateName(String newName)
   {
     return copyWith(name: newName);
   }
 
+  /// Updates the [description] of this [Exercise]
   Exercise updateDescription(String newDescription)
   {
     return copyWith(description: newDescription);
   }
 
+  /// Updates the [numberOfRepetitions] of this [Exercise]
   Exercise updateNumberOfRepetitions(int newNumberOfRepetitions)
   {
     return copyWith(numberOfRepetitions: newNumberOfRepetitions);
   }
 
+  /// Updates the [restTimeInMinutes] of this [Exercise]
   Exercise updateRestTimeInMinutes(int newRestTimeInMinutes)
   {
     return copyWith(restTimeInMinutes: newRestTimeInMinutes);
   }
 
+  /// Updates the [numberOfSets] of this [Exercise]
   Exercise updateNumberOfSets(int newNumberOfSets)
   {
     return copyWith(numberOfSets: newNumberOfSets);
   }
 
+  /// Updates the [weightInKilograms] of this [Exercise]
   Exercise updateWeightInKilograms(double newWeightInKilograms)
   {
     return copyWith(weightInKilograms: newWeightInKilograms);

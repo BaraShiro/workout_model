@@ -30,13 +30,16 @@ class Workout with _$Workout implements IIdentifiable {
     );
   }
 
+  /// Constructs a new [Workout] object from a Json object.
   factory Workout.fromJson(Map<String, Object?> json)
   => _$WorkoutFromJson(json);
 
+  /// Adds an [Exercise] to this [Workout].
   Workout updateExercises(Exercise newExercise) {
     return copyWith(exercises: <Exercise>[...exercises, newExercise]);
   }
 
+  /// Adds several [Exercise]s in a [List] to this [Workout].
   Workout updateExercisesWithSeveral(List<Exercise> newExercises) {
     return copyWith(exercises: <Exercise>[...exercises, ...newExercises]);
   }
