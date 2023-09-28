@@ -1,7 +1,7 @@
 import 'package:workout_model/workout_model.dart';
 
 void main() {
-  Exercise exercise = Exercise(
+  Exercise exercise1 = Exercise(
     name:"An exercise",
     description: "Some exercise that can be done",
     numberOfRepetitions: 4,
@@ -9,7 +9,7 @@ void main() {
     numberOfSets: 5,
     weightInKilograms: 20.0);
 
-  Exercise exercise2 = exercise
+  Exercise exercise2 = exercise1
       .updateName("An updated exercise")
       .updateNumberOfRepetitions(8);
 
@@ -23,8 +23,16 @@ void main() {
 
   Exercise exercise4 = Exercise.fromJson(exercise3.toJson());
 
-  print(exercise.toJson());
+  print(exercise1.toJson());
   print(exercise2.toJson());
   print(exercise3.toJson());
   print(exercise4.toJson());
+
+  Workout workout1 = Workout(exercises: <Exercise>[]);
+  Workout workout2 = workout1.updateExercises(exercise1);
+  Workout workout3 = Workout.fromJson(workout2.toJson());
+
+  print(workout1.toJson());
+  print(workout2.toJson());
+  print(workout3.toJson());
 }
