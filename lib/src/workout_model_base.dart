@@ -1,6 +1,8 @@
-// TODO: Put public facing types in this file.
+import "package:workout_model/src/exercise_model.dart";
 
-/// Checks if you are awesome. Spoiler: you are.
-class Awesome {
-  bool get isAwesome => true;
+/// A workout consisting of a series of exercises.
+class Workout {
+  List<Exercise> exercises;
+
+  Workout(this.exercises);
 }
