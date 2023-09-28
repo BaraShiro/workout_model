@@ -8,7 +8,7 @@ part of 'exercise_model.dart';
 
 _$ExerciseImpl _$$ExerciseImplFromJson(Map<String, dynamic> json) =>
     _$ExerciseImpl(
-      id: json['id'] as String,
+      uuid: json['uuid'] as String,
       name: json['name'] as String,
       description: json['description'] as String,
       numberOfRepetitions: json['numberOfRepetitions'] as int,
@@ -19,7 +19,7 @@ _$ExerciseImpl _$$ExerciseImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$ExerciseImplToJson(_$ExerciseImpl instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      'uuid': instance.uuid,
       'name': instance.name,
       'description': instance.description,
       'numberOfRepetitions': instance.numberOfRepetitions,
