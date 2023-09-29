@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import "package:workout_model/src/IIdentifiable.dart";
+import "package:workout_model/src/i_identifiable.dart";
 import "package:workout_model/src/exercise_model.dart";
 
 part 'workout_model_base.freezed.dart';
