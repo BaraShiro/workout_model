@@ -41,6 +41,12 @@ void main() {
 
   print("");
 
+  Workout workout2copy = Workout.copy(baseWorkout: workout2);
+  print(workout2.toJson());
+  print(workout2copy.toJson());
+
+  print("");
+
   workout2 = workout2.updateExercises(exercise3);
   print(workout2.toJson());
   workout2 = workout2.removeExerciseAtIndex(0);

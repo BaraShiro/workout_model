@@ -48,6 +48,22 @@ class Workout with _$Workout implements IIdentifiable {
     );
   }
 
+  /// Constructs a new [Workout] object from [baseWorkout],
+  /// copying it's exercises, and sets [uuid] to a random v4 UUID.
+  factory Workout.copy({
+    required Workout baseWorkout,
+  }) {
+    return _Workout(
+      uuid: IIdentifiable.generateUuid(),
+      state: WorkoutState.notStarted,
+      startTime: null,
+      stopTime: null,
+      resumedTime: null,
+      workoutDuration: Duration.zero,
+      exercises: baseWorkout.exercises,
+    );
+  }
+
   /// Constructs a new [Workout] object from a Json object.
   factory Workout.fromJson(Map<String, Object?> json)
   => _$WorkoutFromJson(json);
