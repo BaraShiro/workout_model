@@ -23,7 +23,15 @@ class NegativeNumberException implements Exception {
   final String? msg;
 
   const NegativeNumberException([this.msg]);
-
   @override
   String toString() => msg ?? 'NegativeNumberException';
+}
+
+/// Exception thrown if a [Workout] is in an unsupported state for an operation.
+class WorkoutStateException implements Exception {
+  final String? msg;
+
+  const WorkoutStateException([this.msg]);
+  @override
+  String toString() => msg ?? 'WorkoutStateException';
 }

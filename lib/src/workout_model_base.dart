@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import "package:workout_model/src/exceptions.dart";
 import "package:workout_model/src/i_identifiable.dart";
 import "package:workout_model/src/exercise_model.dart";
-import "package:workout_model/workout_model.dart";
 
 part 'workout_model_base.freezed.dart';
 part 'workout_model_base.g.dart';
@@ -16,6 +16,9 @@ enum WorkoutState {
 /// A workout consisting of a series of exercises.
 @freezed
 class Workout with _$Workout implements IIdentifiable {
+  /// Whether the workout has not yet started
+  bool get _workoutHasNotStarted => startTime == null || state == WorkoutState.notStarted;
+
   /// Private constructor with no parameters.
   /// Used by Freezed to enable use of methods in this class.
   const Workout._();
@@ -88,14 +91,25 @@ class Workout with _$Workout implements IIdentifiable {
     return copyWith(exercises: newExercises);
   }
 
+  /// Sets [state] to [WorkoutState.running] and [startTime] to the current time.
+  ///
+  /// Throws [WorkoutStateException] if [state] is not [WorkoutState.notStarted].
   Workout startWorkout() {
-    if(state == WorkoutState.finished) return this;
+    if(state != WorkoutState.notStarted) {
+      throw WorkoutStateException("Can not start a workout that is running, is paused, or is finished.");
+    }
+
     return copyWith(state: WorkoutState.running, startTime: DateTime.now());
   }
 
+  /// Sets [state] to [WorkoutState.paused], and updates [workoutDuration] accordingly.
+  ///
+  /// Throws [WorkoutStateException] if [state] is not [WorkoutState.running],
+  /// or if [startTime] is [Null].
   Workout pauseWorkout() {
-    if(_workoutHasNotStarted()) return this;
-    if(state == WorkoutState.finished) return this;
+    if(_workoutHasNotStarted || state != WorkoutState.running) {
+      throw WorkoutStateException("Can not pause a workout that has not started, is paused, or is finished.");
+    }
 
     final DateTime currentTime = DateTime.now();
     Duration workoutDuration = this.workoutDuration;
@@ -107,16 +121,27 @@ class Workout with _$Workout implements IIdentifiable {
     return copyWith(state: WorkoutState.paused, workoutDuration: workoutDuration);
   }
 
+  /// Sets [state] to [WorkoutState.running] and [resumedTime] to the current time.
+  ///
+  /// Throws [WorkoutStateException] if [state] is not [WorkoutState.paused].
   Workout resumeWorkout() {
-    if(_workoutHasNotStarted()) return this;
-    if(state == WorkoutState.finished) return this;
+    if(state != WorkoutState.paused) {
+      throw WorkoutStateException("Can not resume a workout that has not started, is running, or is finished.");
+    }
 
     final DateTime currentTime = DateTime.now();
     return copyWith(state: WorkoutState.running, resumedTime: currentTime);
   }
 
+  /// Sets [state] to [WorkoutState.finished], sets [stopTime] to the current time,
+  /// and updates [workoutDuration] accordingly.
+  ///
+  /// Throws [WorkoutStateException] if [state] is not [WorkoutState.running],
+  /// or if [startTime] is [Null].
   Workout stopWorkout() {
-    if(_workoutHasNotStarted()) return this;
+    if(_workoutHasNotStarted || state != WorkoutState.running) {
+      throw WorkoutStateException("Can not stop a workout that has not started, is paused, or is finished.");
+    }
 
     final DateTime currentTime = DateTime.now();
     Duration workoutDuration = this.workoutDuration;
@@ -128,11 +153,8 @@ class Workout with _$Workout implements IIdentifiable {
     return copyWith(state: WorkoutState.finished, stopTime: currentTime, workoutDuration: workoutDuration);
   }
 
+  /// Sets [state] to [WorkoutState.notStarted], and resets all recorded times.
   Workout resetWorkout() {
     return copyWith(state: WorkoutState.notStarted, startTime: null, stopTime: null, resumedTime: null, workoutDuration: Duration.zero);
-  }
-
-  bool _workoutHasNotStarted() {
-    return startTime == null || state == WorkoutState.notStarted;
   }
 }
