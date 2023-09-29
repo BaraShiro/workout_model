@@ -62,6 +62,15 @@ class Workout with _$Workout implements IIdentifiable {
     return copyWith(exercises: <Exercise>[...exercises, ...newExercises]);
   }
 
+  /// Removes an [Exercise] from [exercises] at [index].
+  ///
+  /// Throws [RangeError] if [index] is < 0 or >= [exercises.length]
+  Workout removeExerciseAtIndex(int index) {
+    List<Exercise> newExercises = <Exercise>[...exercises];
+    newExercises.removeAt(index);
+    return copyWith(exercises: newExercises);
+  }
+
   Workout startWorkout() {
     if(state == WorkoutState.finished) return this;
     return copyWith(state: WorkoutState.running, startTime: DateTime.now());

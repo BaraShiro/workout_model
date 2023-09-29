@@ -41,6 +41,13 @@ void main() {
 
   print("");
 
+  workout2 = workout2.updateExercises(exercise3);
+  print(workout2.toJson());
+  workout2 = workout2.removeExerciseAtIndex(0);
+  print(workout2.toJson());
+
+  print("");
+
   Duration duration = const Duration(seconds: 1);
 
   print('Starting workout');
