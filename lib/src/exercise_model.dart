@@ -14,6 +14,7 @@ class Exercise with _$Exercise implements IIdentifiable {
 
   /// Private constructor with a parameter for [uuid].
   /// Only used for code generation with Freezed.
+  // ignore: unused_element
   factory Exercise._def({
     required UUID uuid,
     required String name,

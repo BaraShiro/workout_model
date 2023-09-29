@@ -23,6 +23,7 @@ class Workout with _$Workout implements IIdentifiable {
   /// Private constructor with a parameter for [uuid].
   /// Only used for code generation with Freezed.
   @JsonSerializable(explicitToJson: true)
+  // ignore: unused_element
   factory Workout._def({
     required UUID uuid,
     required WorkoutState state,
