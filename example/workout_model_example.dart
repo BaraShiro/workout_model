@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:workout_model/workout_model.dart';
 
 void main() {
@@ -28,6 +29,8 @@ void main() {
   print(exercise3.toJson());
   print(exercise4.toJson());
 
+  print("");
+
   Workout workout1 = Workout(exercises: <Exercise>[]);
   Workout workout2 = workout1.updateExercises(exercise1);
   Workout workout3 = Workout.fromJson(workout2.toJson());
@@ -35,4 +38,47 @@ void main() {
   print(workout1.toJson());
   print(workout2.toJson());
   print(workout3.toJson());
+
+  print("");
+
+  Duration duration = const Duration(seconds: 1);
+
+  print('Starting workout');
+  Workout workout4 = workout1.startWorkout();
+  sleep(duration);
+  workout4 = workout4.stopWorkout();
+  print('Worked out for 1 second');
+  print('Stopping workout');
+  print(workout4.toJson());
+
+  print("");
+
+  print('Starting workout');
+  Workout workout5 = workout1.startWorkout();
+  sleep(duration);
+  print('Worked out for 1 second');
+
+  print('Pausing workout');
+  workout5 = workout5.pauseWorkout();
+  sleep(duration);
+  print('Paused for 1 second');
+
+  print('Resuming workout');
+  workout5 = workout5.resumeWorkout();
+  sleep(duration);
+  print('Worked out for 1 second');
+
+  print('Pausing workout');
+  workout5 = workout5.pauseWorkout();
+  sleep(duration);
+  print('Paused for 1 second');
+
+  print('Resuming workout');
+  workout5 = workout5.resumeWorkout();
+  sleep(duration);
+  print('Worked out for 1 second');
+  print('Stopping workout');
+  workout5 = workout5.stopWorkout();
+
+  print(workout5.toJson());
 }
