@@ -56,6 +56,19 @@ class Exercise with _$Exercise implements IIdentifiable {
     );
   }
 
+  /// Constructs a new [Exercise] object, copying data from [exercise],
+  /// and sets [uuid] to a random v4 UUID.
+  factory Exercise.copy(Exercise exercise) {
+    return Exercise(
+        name: exercise.name,
+        description: exercise.description,
+        numberOfRepetitions: exercise.numberOfRepetitions,
+        restTimeInMinutes: exercise.restTimeInMinutes,
+        numberOfSets: exercise.numberOfSets,
+        weightInKilograms: exercise.weightInKilograms
+    );
+  }
+
   /// Constructs a new [Exercise] object from a Json object.
   factory Exercise.fromJson(Map<String, Object?> json)
   => _$ExerciseFromJson(json);
