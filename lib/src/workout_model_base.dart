@@ -6,17 +6,22 @@ import "package:workout_model/src/exercise_model.dart";
 part 'workout_model_base.freezed.dart';
 part 'workout_model_base.g.dart';
 
+/// A set of mutually exclusive states that a [Workout] can be in.
 enum WorkoutState {
+  /// The workout has yet to be started.
   notStarted,
+  /// The workout is in progress.
   running,
+  /// The workout has paused and can be resumed.
   paused,
+  /// The workout has finished.
   finished,
 }
 
 /// A workout consisting of a series of exercises.
 @freezed
 class Workout with _$Workout implements IIdentifiable {
-  /// Whether the workout has not yet started
+  /// Whether the workout has not yet started.
   bool get _workoutHasNotStarted => startTime == null || state == WorkoutState.notStarted;
 
   /// Private constructor with no parameters.
@@ -84,7 +89,7 @@ class Workout with _$Workout implements IIdentifiable {
 
   /// Removes an [Exercise] from [exercises] at [index].
   ///
-  /// Throws [RangeError] if [index] is < 0 or >= [exercises.length]
+  /// Throws [RangeError] if [index] is < 0 or >= [exercises.length].
   Workout removeExerciseAtIndex(int index) {
     List<Exercise> newExercises = <Exercise>[...exercises];
     newExercises.removeAt(index);

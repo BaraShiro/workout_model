@@ -73,7 +73,7 @@ class Exercise with _$Exercise implements IIdentifiable {
   factory Exercise.fromJson(Map<String, Object?> json)
   => _$ExerciseFromJson(json);
 
-  /// Updates the [name] of this [Exercise]
+  /// Updates the [name] of this [Exercise].
   ///
   /// [newName] must be non empty, otherwise throws [EmptyNameException].
   Exercise updateName(String newName)
@@ -82,13 +82,13 @@ class Exercise with _$Exercise implements IIdentifiable {
     return copyWith(name: newName);
   }
 
-  /// Updates the [description] of this [Exercise]
+  /// Updates the [description] of this [Exercise].
   Exercise updateDescription(String newDescription)
   {
     return copyWith(description: newDescription);
   }
 
-  /// Updates the [numberOfRepetitions] of this [Exercise]
+  /// Updates the [numberOfRepetitions] of this [Exercise].
   ///
   /// [newNumberOfRepetitions] must be a positive integer, otherwise throws [NonPositiveNumberException].
   Exercise updateNumberOfRepetitions(int newNumberOfRepetitions)
@@ -97,7 +97,7 @@ class Exercise with _$Exercise implements IIdentifiable {
     return copyWith(numberOfRepetitions: newNumberOfRepetitions);
   }
 
-  /// Updates the [restTimeInMinutes] of this [Exercise]
+  /// Updates the [restTimeInMinutes] of this [Exercise].
   ///
   /// [newRestTimeInMinutes] must be a non negative integer, otherwise throws [NegativeNumberException].
   Exercise updateRestTimeInMinutes(int newRestTimeInMinutes)
@@ -106,7 +106,7 @@ class Exercise with _$Exercise implements IIdentifiable {
     return copyWith(restTimeInMinutes: newRestTimeInMinutes);
   }
 
-  /// Updates the [numberOfSets] of this [Exercise]
+  /// Updates the [numberOfSets] of this [Exercise].
   ///
   /// [newNumberOfSets] must be a positive integer, otherwise throws [NonPositiveNumberException].
   Exercise updateNumberOfSets(int newNumberOfSets)
@@ -115,7 +115,7 @@ class Exercise with _$Exercise implements IIdentifiable {
     return copyWith(numberOfSets: newNumberOfSets);
   }
 
-  /// Updates the [weightInKilograms] of this [Exercise]
+  /// Updates the [weightInKilograms] of this [Exercise].
   ///
   /// [newWeightInKilograms] must be a non negative number, otherwise throws [NegativeNumberException].
   Exercise updateWeightInKilograms(double newWeightInKilograms)
